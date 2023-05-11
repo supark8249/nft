@@ -66,8 +66,8 @@ app.post('/edit', (req, res) => {
   if ( req.query.bid ) {
           bid = parseInt(req.query.bid)
           console.log("bid" + bid)
-          console.log("body password" + req.body.password)
-          console.log("query password" + req.query.password)
+          console.log("body password : " + req.body.password)
+          console.log("query password : " + req.query.password)
           if(req.body.password == req.query.password){
             nfts.findOneAndUpdate({id:bid},{$set:{title:req.body.title,url:req.body.url,imageUrl:req.body.imageUrl,content:req.body.content}},null).then((board) => {
               //res.render("content", {"name":"Board Content", "board":board})
