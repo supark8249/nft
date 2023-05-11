@@ -74,9 +74,9 @@ app.post('/edit', (req, res) => {
               res.redirect("/content?bid="+bid)
             })
           }else{
-            res.write("<script>alert('비밀번호가 틀림')</script>");
+            res.write("<script>alert('password error')</script>");
             console.log("비밀번호가 틀림")
-            return
+            res.redirect("/content?bid="+bid)
           }
   }
 })
