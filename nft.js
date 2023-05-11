@@ -68,7 +68,7 @@ app.post('/edit', (req, res) => {
           console.log("bid" + bid)
           console.log("body password : " + req.body.password)
           console.log("query password : " + req.body.password_o)
-          if(req.body.password == req.query.password){
+          if(req.body.password == req.body.password_o){
             nfts.findOneAndUpdate({id:bid},{$set:{title:req.body.title,url:req.body.url,imageUrl:req.body.imageUrl,content:req.body.content}},null).then((board) => {
               //res.render("content", {"name":"Board Content", "board":board})
               res.redirect("/content?bid="+bid)
@@ -76,6 +76,7 @@ app.post('/edit', (req, res) => {
           }else{
             res.write("<script>alert('password error')</script>");
             console.log("비밀번호가 틀림")
+            console.log(req.query.bid)
             res.redirect("/edit?bid=" + req.query.bid)
           }
   }
