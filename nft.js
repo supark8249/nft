@@ -76,6 +76,7 @@ app.post('/edit', (req, res) => {
           }else{
             res.write("<script>alert('비밀번호가 틀림')</script>");
             console.log("비밀번호가 틀림")
+            return
           }
   }
 })
