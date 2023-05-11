@@ -76,7 +76,7 @@ app.post('/edit', (req, res) => {
           }else{
             res.write("<script>alert('password error')</script>");
             console.log("비밀번호가 틀림")
-            res.redirect("/edit?bid="+bid)
+            res.redirect("/edit?bid=" + req.query.bid)
           }
   }
 })
