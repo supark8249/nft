@@ -39,8 +39,8 @@
       $(document).ready( function() {
       
         $("#headers").load("/include/header.html");  // 상위메뉴
+        $("#contents").load("/include/content.html");  // content
         $("#footers").load("/include/footer.html");  // footer
-        $("#footers").load("/include/contents.html");  // content
       
       });
     </script>    
@@ -75,7 +75,7 @@
         </div>
       </div>
 
-      <div class="contents"></div>
+      <div id="contents"></div>
     </main>
 
     <div id="footers"></div>
