@@ -1,51 +1,114 @@
-<body>
-    <h1><%=name%></h1>
-    <form method=post action='/edit?bid=<%=board.id%>'>
-        <table>
-            <tr>
-                <td>id</td>
-                <td><%=board.id%></td>
-            </tr>
-            <tr>
-                <td>title</td>
-                <td>
-                    <input type="text" name=title value="<%=board.title%>" size=100>
-                </td>
-            </tr>
-            <tr>
-                <td>url</td>
-                <td>
-                    <input type="text" name=url value="<%=board.url%>" size=160>
-                </td>
-            </tr>
-            <tr>
-                <td>image url</td>
-                <td>
-                    <input type="text" name=imageUrl value="<%=board.imageUrl%>" size=100>
-                </td>
-            </tr>
-            <tr>
-                <td>content</td>
-                <td>
-                    <textarea name=content cols=100>
-                        <%=board.content%>
-                    </textarea>
-                    <br>
-                </td>
-            </tr>
-            <tr>
-                <td>password</td>
-                <td>
-                    <input type="text" name=password value="" size=100>
-                    <input type="hidden" name=password_o value="<%=board.password%>" size=100>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="submit" value=수정>
-                </td>
-                <td></td>
-            </tr>
-        </table>
-    </form>
-</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>NFT</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/blog/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    <!-- Custom styles for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="blog.css" rel="stylesheet" type="text/css">
+
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript">   
+      $(document).ready( function() {
+      
+        $("#headers").load("/include/header.html");  // 상위메뉴
+        $("#footers").load("/include/footer.html");  // footer
+      
+      });
+    </script>    
+    
+  </head>
+  <body>
+    <div id="headers"></div>
+    <main class="container">
+        <div class="row g-5">
+            <div class="col-md-8">
+              <article class="blog-post">
+                <h2 class="blog-post-title"><%=name%></h2>
+                <form method=post action='/edit?bid=<%=board.id%>'>
+                    <table class="table">
+                        <tr>
+                            <td>id</td>
+                            <td><%=board.id%></td>
+                        </tr>
+                        <tr>
+                            <td>title</td>
+                            <td>
+                                <input type="text" name=title value="<%=board.title%>" size=100>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>url</td>
+                            <td>
+                                <input type="text" name=url value="<%=board.url%>" size=160>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>image url</td>
+                            <td>
+                                <input type="text" name=imageUrl value="<%=board.imageUrl%>" size=100>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>content</td>
+                            <td>
+                                <textarea name=content cols=100>
+                                    <%=board.content%>
+                                </textarea>
+                                <br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>password</td>
+                            <td>
+                                <input type="text" name=password value="" size=100>
+                                <input type="hidden" name=password_o value="<%=board.password%>" size=100>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="submit" value=수정>
+                            </td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </form>
+              </article>                
+
+              <nav class="blog-pagination" aria-label="Pagination">
+                <a class="btn btn-outline-primary" href="/like?bid=<%=board.id%>">좋아요~</a>
+                <input class="btn btn-outline-primary" type="submit" value=수정>
+              </nav>        
+            </div>        
+          </div>
+    </main>
+    <div id="footers"></div>
+  </body>
+</html>
