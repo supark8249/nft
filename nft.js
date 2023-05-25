@@ -63,7 +63,7 @@ app.get('/edit', (req, res) => {
 })
 app.post('/edit', (req, res) => {
         console.log("edit post" + req.body.title + req.body.content)
-  if ( req.query.bid ) {
+        if ( req.query.bid ) {
           bid = parseInt(req.query.bid)
           console.log("bid" + bid)
           console.log("body password : " + req.body.password)
@@ -74,13 +74,11 @@ app.post('/edit', (req, res) => {
               res.redirect("/content?bid="+bid)
             })
           }else{
-            res.write("<script>alert('password error')</script>");
-            console.log("비밀번호가 틀림 : " + bid)
+            console.log("비밀번호가 틀림")
             return res.status(400).json({
               status: 'error',
-              error: 'req body cannot be empty',
+              error: '비밀번호가 틀림',
             });
-            res.redirect("/edit?bid=" + bid)
           }
   }
 })
