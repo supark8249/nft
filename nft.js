@@ -76,7 +76,10 @@ app.post('/edit', (req, res) => {
           }else{
             res.write("<script>alert('password error')</script>");
             console.log("비밀번호가 틀림 : " + bid)
-            console.log(req.query.bid)
+            return res.status(400).json({
+              status: 'error',
+              error: 'req body cannot be empty',
+            });
             res.redirect("/edit?bid=" + bid)
           }
   }
